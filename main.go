@@ -8,28 +8,27 @@ import (
 )
 
 func parseArgs() (string, string, string, int, error){
-	var inputFile, outputFile, portList string
-	//var itemId int64
+    var inputFile, outputFile, portList string
     var err error
     threads := flag.Int("threads", 100, "Number of threads (go rouitines) to use.")
-	flag.StringVar(&inputFile, "i", "", "Input file with IP addresses/CIDR network range to scan.")
-	flag.StringVar(&outputFile, "o", "", "Output file name to store the scan results.")
+    flag.StringVar(&inputFile, "i", "", "Input file with IP addresses/CIDR network range to scan.")
+    flag.StringVar(&outputFile, "o", "", "Output file name to store the scan results.")
     flag.StringVar(&portList, "p", "", "Comma-separated list of ports to scan.")
-	flag.Parse()
-	if inputFile == "" || outputFile  == "" || portList == "" {
-		flag.PrintDefaults()
-		err = errors.New("[!!] Wrong parameters.")
-	}
-
-	return inputFile, outputFile, portList, *threads, err
+    flag.Parse()
+    if inputFile == "" || outputFile  == "" || portList == "" {
+        flag.PrintDefaults()
+        err = errors.New("[!!] Wrong parameters.")
+    }
+    return inputFile, outputFile, portList, *threads, err
 }
 
 func main() {
-	//Parse the arguments
+    
+    //Parse the arguments
     inputFile, outputFile, portList, threads, err := parseArgs()
-	if err != nil {
-		log.Fatal(err)
-	}
+    if err != nil {
+        log.Fatal(err)
+    }
 
     //Prepare the output file
     outputFileHandler, err := utils.CreateOutputFile(outputFile)

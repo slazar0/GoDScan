@@ -61,12 +61,12 @@ func scanHost(channel chan string, wg *sync.WaitGroup, host Host) {
  - http://play.golang.org/p/m8TNTtygK0
 */
 func inc(ip net.IP) {
-	for j := len(ip) - 1; j >= 0; j-- {
-		ip[j]++
-		if ip[j] > 0 {
-			break
-		}
-	}
+    for j := len(ip) - 1; j >= 0; j-- {
+        ip[j]++
+        if ip[j] > 0 {
+            break
+        }
+    }
 }
 
 /**
