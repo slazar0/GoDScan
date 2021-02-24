@@ -3,8 +3,8 @@ package main
 import (
     "log"
     "flag"
-	"errors"
-	"github.com/godscan/core"
+    "errors"
+    "github.com/slazar0/godscan/core"
 )
 
 func parseArgs() (string, string, string, int, error){
